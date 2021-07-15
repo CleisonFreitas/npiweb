@@ -19,6 +19,7 @@ class CreateFunerarioModelsTable extends Migration
             $table->string('modulo',2);
             $table->string('menu',30);
             $table->string('title',30);
+            $table->string('banco',15)->nullable();
             $table->string('iframe');
             $table->string('token');
             $table->timestamps();

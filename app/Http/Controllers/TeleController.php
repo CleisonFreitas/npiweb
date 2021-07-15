@@ -31,6 +31,7 @@ class TeleController extends Controller
     public function atualizar(TeleRequest $request, $id){
         $id = $request->input('id');
         $title = $request->input('title');
+        $banco = $request->input('banco');
         $menu = $request->input('menu');
         $iframe = $request->input('iframe');
         $login = $request->input('login');
@@ -39,6 +40,7 @@ class TeleController extends Controller
         $update = TeleModel::find($id);
         $update->menu = $menu;
         $update->title = $title;
+        $update->banco = $banco;
         $update->iframe = $iframe;
         $update->iframe = $login;
         $update->save();

@@ -17,23 +17,23 @@
         <input type="hidden" value="{{ $f->id }}" name="id" id="id">
         <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
 
-        <div class="col-10 col-xl-3 mb-3">
+        <div class="col-12 col-xl-3 mb-3">
             <select class="form-control" name="modulo" id="modulo" required>
                 <option value="Mutare">Mutare</option>
             </select>
         </div>
-        <div class="col-10 col-xl-3 mb-3">
+        <div class="col-12 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro">
         </div>
     </div>
     <div class="row">
-        <div class="col-10 col-xl-3 mb-3">
+        <div class="col-12 col-xl-3 mb-3">
             <input type="text" class="form-control" value="{{ $f->menu}}" name="menu" id="menu" placeholder="Descrição do menu!" required>
             @error('menu')
                 <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
             @enderror
         </div>
-        <div class="col-10 col-xl-7 mb-3">
+        <div class="col-12 col-xl-7 mb-3">
             <input type="text" class="form-control" value="{{ $f->title}}" name="title" id="titulo" placeholder="Título do vídeo" required>
             @error('title')
                 <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-10 col-xl-10 mb-3">
+        <div class="col-12 col-xl-10 mb-3">
             <input type="text" class="form-control" value="{{ $f->iframe}}" name="iframe" id="link" placeholder="Cole o link do vídeo aqui!" required>
             @error('iframe')
                 <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
@@ -64,26 +64,26 @@
 <div class="row">
         <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="mob<?php echo MD5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Mobile" id="descricao">
+            <input type="hidden" name="descricao" value="mobile" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
-        <div class="col-10 col-xl-3 mb-3">
+        <div class="col-12 col-xl-3 mb-3">
             <select class="form-control" name="modulo" id="modulo" required>
                 <option value="Mutare">Mutare</option>
             </select>
         </div>
-        <div class="col-10 col-xl-3 mb-3">
+        <div class="col-12 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro">
         </div>
 </div>
 <div class="row">
-    <div class="col-10 col-xl-3 mb-3">
+    <div class="col-12 col-xl-3 mb-3">
         <input type="text" class="form-control" value="{{ old('menu') }}" name="menu" id="menu" placeholder="Descrição do menu!" required>
         @error('menu')
             <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
         @enderror
     </div>
-    <div class="col-10 col-xl-7 mb-3">
+    <div class="col-12 col-xl-7 mb-3">
         <input type="text" class="form-control" value="{{ old('title') }}" name="title" id="titulo" placeholder="Título do vídeo" required>
         @error('title')
             <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
@@ -91,7 +91,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-10 col-xl-10 mb-3">
+    <div class="col-12 col-xl-10 mb-3">
         <input type="text" class="form-control" value="{{ old('iframe') }}" name="iframe" id="link" placeholder="Cole o link do vídeo aqui!" required>
         @error('iframe')
             <small id="emailHelp" class="form-text text-danger">{{$message}}</small>

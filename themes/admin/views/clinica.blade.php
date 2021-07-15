@@ -14,9 +14,12 @@
     <div class="row">
         <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="cli<?php echo MD5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Clinica" id="descricao">
+            <input type="hidden" name="descricao" value="clinica" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
+        <div class="col-10 col-xl-3 mb-3">
+            <input type="text" class="form-control" value="{{ old('banco') }}" placeholder="Cliente" name="dt-cadastro" id="dt-cadastro" required>
+        </div>
         <div class="col-10 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro" required>
         </div>

@@ -8,7 +8,7 @@ class EmissorModel extends Model
 {
     protected $table = 'emissor';
     protected $fillable = [
-        'id','login','menu','title','iframe','token','created_at','updated_at'
+        'id','login','menu','banco','title','iframe','token','created_at','updated_at'
     ];
     public $timestamp = true;
 }

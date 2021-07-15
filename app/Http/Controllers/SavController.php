@@ -31,12 +31,14 @@ class SavController extends Controller
         $id = $request->input('id');
         $title = $request->input('title');
         $menu = $request->input('menu');
+        $banco = $request->input('banco');
         $iframe = $request->input('iframe');
         $login = $request->input('login');
 
         $update = SavModel::find($id);
         $update->menu = $menu;
         $update->title = $title;
+        $update->banco = $banco;
         $update->iframe = $iframe;
         $update->login = $login;
         $update->save();

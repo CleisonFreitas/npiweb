@@ -8,7 +8,7 @@ class SavModel extends Model
 {
     protected $table = 'veicular';
     protected $fillable = [
-        'id','login','menu','title','iframe','token','created_at','updated_at'
+        'id','login','menu','title','banco','iframe','token','created_at','updated_at'
     ];
     public $timestamps = true;
 }

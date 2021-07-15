@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>NPI Administrador - @yield('title')</title>
+    
 
      <!-- Custom fonts for this template -->
      <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -28,6 +29,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
+    <link rel="shortcut icon" href="/img/favicon.png">
 </head>
 
 <body id="page-top">
@@ -135,7 +137,25 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Controle de Conteúdo -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#controle"
+                    aria-expanded="true" aria-controls="controle">
+                    <i class="bi bi-menu-button-fill"></i>
+                    <span>Controle</span>
+                </a>
+                <div id="controle" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gerenciar:</h6>
+                        <a class="collapse-item" href="{{ route('admin.laboratorio')}}">Laboratório</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Controle de Conteúdo -->
+
+            <!-- Nav Item -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.contato') }}">
                     <i class="fas fa-envelope"></i>
@@ -381,13 +401,14 @@
 
             </div>
             <!-- End of Main Content -->
-
-            <!-- Footer -->
+           
+                <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>NPI Tecnologia &copy; Todos os Direitos Reservados</span>
                     </div>
+                    
                 </div>
             </footer>
             <!-- End of Footer -->

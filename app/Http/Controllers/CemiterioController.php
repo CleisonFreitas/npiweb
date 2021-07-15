@@ -32,12 +32,14 @@ class CemiterioController extends Controller
         public function atualizar(CemiterioRequest $request, $id){
             $id = $request->input('id');
             $title = $request->input('title');
+            $banco = $request->input('banco');
             $menu = $request->input('menu');
             $iframe = $request->input('iframe');
     
             $update = CemiterioModel::find($id);
             $update->menu = $menu;
             $update->title = $title;
+            $update->banco = $banco;
             $update->iframe = $iframe;
             $update->save();
             $sessao = session()->flash('sucesso',"Procedimento realizado com sucesso!");

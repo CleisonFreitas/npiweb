@@ -54,7 +54,7 @@
                                 </button>
                         </div>
                     <div class="modal-body">
-                    Deseja realmente cancelar sua inscrição
+                    Deseja realmente cancelar sua inscrição?
                     </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
