@@ -17,6 +17,7 @@ class CreateCemiterioModelsTable extends Migration
             $table->increments('id');
             $table->string('login',30);
             $table->string('menu',30);
+            $table->string('banco',15)->nullable();
             $table->string('title',30);
             $table->string('iframe');
             $table->string('token');

@@ -8,7 +8,7 @@ class ClinicaModel extends Model
 {
     protected $table = 'clinica';
     protected $fillable = [
-        'id','login','menu','title','iframe','token','created_at','updated_at'
+        'id','login','menu','title','banco','iframe','token','created_at','updated_at'
     ];
     public $timestamp = true;
 }

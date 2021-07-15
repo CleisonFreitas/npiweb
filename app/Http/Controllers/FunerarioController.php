@@ -32,6 +32,7 @@ class FunerarioController extends Controller
         $modulo = $request->input('modulo');
         $menu = $request->input('menu');
         $titulo = $request->input('title');
+        $banco = $request->input('banco');
         $link = $request->input('iframe');
         $login = $request->input('login');
 
@@ -39,6 +40,7 @@ class FunerarioController extends Controller
         $update->modulo = $modulo;
         $update->menu = $menu;
         $update->title = $titulo;
+        $update->banco = $banco;
         $update->iframe = $link;
         $update->login = $login;
         $update->save();

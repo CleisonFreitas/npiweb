@@ -17,10 +17,15 @@
             <input type="hidden" name="descricao" value="Cemiterio" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
+
+        <div class="col-10 col-xl-3 mb-3">
+            <input type="text" class="form-control" value="{{ old('banco') }}" placeholder="Cliente" name="banco" id="banco" required>
+        </div>
         <div class="col-10 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro" required>
         </div>
     </div>
+
     <div class="row">
         <div class="col-10 col-xl-3 mb-3">
             <input type="text" class="form-control" value="{{ old('menu') }}" name="menu" id="menu" placeholder="Descrição do menu!" required>
@@ -35,6 +40,7 @@
             @enderror
         </div>
     </div>
+
     <div class="row">
         <div class="col-10 col-xl-10 mb-3">
             <input type="text" class="form-control" value="{{ old('iframe') }}" name="iframe" id="Link" placeholder="Cole o link do vídeo aqui!" required>
@@ -43,11 +49,13 @@
             @enderror
         </div>
     </div>
+
     <div class="row">
         <div class="col">
             <button type="submit" class="btn btn-info">Gravar</button>
         </div>
     </div>
+    
 </form>  
 @endif
 
@@ -58,8 +66,15 @@
 <form action="{{route('admin.cem.updt',$e->id)}}" method="post">
     @csrf
     <div class="row">
+
+    <!-- Registro para auditoria -->
         <input type="hidden" value="{{ $e->id }}" name="id" id="id">
         <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
+    <!-- Registro para auditoria -->
+
+        <div class="col-10 col-xl-3 mb-3">
+            <input type="text" class="form-control" value="{{$e->banco}}" placeholder="Cliente" name="banco" id="banco" required>
+        </div>
         <div class="col-10 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d', strtotime($e->created_at)) }}" name="dt-cadastro" id="dt-cadastro" required>
         </div>

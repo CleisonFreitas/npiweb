@@ -18,6 +18,7 @@ class CreateEmissorModelsTable extends Migration
             $table->string('login',30);
             $table->string('menu',30);
             $table->string('title',30);
+            $table->string('banco',15)->nullable();
             $table->string('iframe');
             $table->string('token');
             $table->timestamps();

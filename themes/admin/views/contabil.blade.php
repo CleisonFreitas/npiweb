@@ -18,6 +18,9 @@
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
         <div class="col-10 col-xl-3 mb-3">
+            <input type="text" class="form-control" value="{{ old('banco') }}" placeholder="Cliente" name="banco" id="banco" required>
+        </div>
+        <div class="col-10 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro" required>
         </div>
     </div>
@@ -57,8 +60,13 @@
 <form action="{{route('admin.con.updt',$e->id)}}" method="post">
     @csrf
     <div class="row">
+        
         <input type="hidden" value="{{ $e->id }}" name="id" id="id">
         <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
+
+        <div class="col-10 col-xl-3 mb-3">
+            <input type="text" class="form-control" value="{{$e->banco}}" placeholder="Cliente" name="banco" id="banco" required>
+        </div>
         <div class="col-10 col-xl-3 mb-3">
             <input type="date" class="form-control" value="{{ date('Y-m-d', strtotime($e->created_at)) }}" name="dt-cadastro" id="dt-cadastro" required>
         </div>

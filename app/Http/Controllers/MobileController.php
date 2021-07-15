@@ -31,6 +31,7 @@ class MobileController extends Controller
         $id = $request->input('id');
         $menu = $request->input('menu');
         $titulo = $request->input('title');
+        $banco = $request->input('banco');
         $modulo = $request->input('modulo');
         $link = $request->input('iframe');
         $login = $request->input('login');
@@ -39,6 +40,7 @@ class MobileController extends Controller
         $update->modulo = $modulo;
         $update->menu = $menu;
         $update->title = $titulo;
+        $update->banco = $banco;
         $update->iframe = $link;
         $update->login = $login;
         $update->save();

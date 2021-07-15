@@ -31,6 +31,7 @@ class EmissorController extends Controller
     public function atualizar(EmissorRequest $request, $id){
         $id = $request->input('id');
         $title = $request->input('title');
+        $banco = $request->input('banco');
         $menu = $request->input('menu');
         $iframe = $request->input('iframe');
         $login = $request->input('login');
@@ -38,6 +39,7 @@ class EmissorController extends Controller
         $update = EmissorModel::find($id);
         $update->menu = $menu;
         $update->title = $title;
+        $update->banco = $banco;
         $update->iframe = $iframe;
         $update->login = $login;
         $update->save();
