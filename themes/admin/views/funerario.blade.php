@@ -80,7 +80,7 @@
 
             <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="fun<?php echo md5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Funerário" id="descricao">
+            <input type="hidden" name="descricao" value="funerario" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
             <input type="hidden" name="tipo" value="funerario" id="funerario">
             <!-- #Token de armazenamento e descrição do sistema -->

@@ -101,8 +101,9 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
 
         // Laboratório - Admin
         Route::get('/controle/laboratorio',                 [App\Http\Controllers\LabController::class,'view_lab'])->name('laboratorio');
+        Route::post('/controle/laboratorio/editar',         [App\Http\Controllers\LabController::class,'edit_show'])->name('edit_show');
         Route::post('/controle/laboratorio/editar',         [App\Http\Controllers\LabController::class,'edit_form'])->name('lab_edit');
-        Route::get('/controle/laboratorio/editar',          [App\Http\Controllers\LabController::class,'edit_show'])->name('edit_show');
+        
         //Em Desenvolvimento
         Route::get('/gerenciador', function() {
             return view('gerenciador');

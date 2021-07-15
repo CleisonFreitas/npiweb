@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\LabModel;
 use App\Models\FormModel;
+use App\Models\IndiModel;
 use App\Models\SistemasModel;
 
 
@@ -16,7 +17,9 @@ class LabController extends Controller
         $laboratorio = FormModel::all();
         return view('laboratorio')->with('laboratorio',$laboratorio);
     }
-    public function edit_show(){
+    public function edit_show(Request $request){
+        $id = $request->input('conteudo');
+        IndiModel::all()->where('form_id',$id);
         return view('edit_lab');
     }
     public function edit_form(Request $request){

@@ -14,7 +14,7 @@
     <div class="row">
         <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="cli<?php echo MD5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Clinica" id="descricao">
+            <input type="hidden" name="descricao" value="clinica" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
         <div class="col-10 col-xl-3 mb-3">

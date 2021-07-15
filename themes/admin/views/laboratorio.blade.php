@@ -30,7 +30,7 @@
                         
                         <h2 class="h5 mb-4 mt-3 text-dark">Controle de Formações</h2>
 
-                        <form class="mt-4" action="{{route('admin.lab_edit')}}" method="POST">
+                        <form class="mt-4" action="{{route('admin.edit_show')}}" method="POST">
                             @csrf
                             <div class="form-group row">
                                 <div class="col col-md-10">

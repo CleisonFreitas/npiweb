@@ -14,7 +14,7 @@
     <div class="row">
         <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="cem<?php echo MD5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Cemiterio" id="descricao">
+            <input type="hidden" name="descricao" value="cemiterio" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
 

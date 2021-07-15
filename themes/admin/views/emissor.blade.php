@@ -15,7 +15,7 @@
 
         <!-- Token de armazenamento e descrição do sistema -->
             <input type="hidden" name="token" value="emi<?php echo MD5(rand(10,1000));?>" id="token">
-            <input type="hidden" name="descricao" value="Emissor" id="descricao">
+            <input type="hidden" name="descricao" value="emissor" id="descricao">
             <input type="hidden" name="login" value="{{Auth::guard('admin')->user()->name}}"id="login">
         <!-- Token de armazenamento e descrição do sistema -->
 
