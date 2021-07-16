@@ -10,6 +10,6 @@ class IndiModel extends Model
     use HasFactory;
 
     protected $table = 'indices';
-    protected $fillable = ['id','descricao','form_id','categoria','nivel','ordem','operador'];
+    protected $fillable = ['id','nome','form_id','categoria','nivel','ordem','operador'];
     public $timestamps = true;
 }

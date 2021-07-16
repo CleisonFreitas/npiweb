@@ -11,16 +11,16 @@
 
 
     <!-- Espelho para edição de formação -->
-    @foreach($laboratorio as $lab)
+    @foreach($formacoes as $f)
         <div class="row">
-            <div class="col-4 col-md-2 mb-1">
-                <input type="text" name="codigo" id="codigo" value="{{$lab->id}}" class="form-control" placeholder="Código" readonly>
+            <div class="col-4 col-sm-3 col-lg-2">
+                <input type="text" name="codigo" id="codigo" value="{{$f->id}}" class="form-control"  readonly style="background-color:white;">
             </div>
         </div>
         <div class="form-group row">
             <div class="col-10 col-sm-8 col-lg-8">
-                <select class="custom-select" name="formacoes" id="laboratorio" readonly>
-                    <option value="{{$lab->id}}">{{$lab->descricao}}</option>
+                <select class="custom-select" name="formacoes" id="laboratorio">
+                    <option value="{{$f->id}}">{{$f->descricao}}</option>
                 </select>
             </div>
             <div class="col">
@@ -38,7 +38,7 @@
                     </div>
                         <div class="card-body ">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center;">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="10" style="text-align:center;">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -47,52 +47,57 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($sistemas as $s)
-                                        <tr>
-                                            <td>{{ $s->id }}</td>
-                                            <td>{{ $s->descricao }}</td>
-                                            <td>
-                                                <a href="" data-toggle="modal" class=" btn btn-primary btn-cicle" data-target="#conteudo">
-                                                    <i class="bi bi-plus-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @foreach($sistemas as $sistemas)
+                                            <tr>
+                                                <td>{{ $sistemas->id }}</td>
+                                                <td>{{ $sistemas->titulo }}</td>
+                                                <td>
+                                                    <a href="" data-toggle="modal" class=" btn btn-primary btn-cicle" data-target="#s{{$sistemas->id}}">
+                                                        <i class="bi bi-plus-circle"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
-            </div>
-        </div>
+                        </div>
+                    </div>
 
                     <!-- Modal -->
-                        <div class="modal fade" id="conteudo" tabindex="-1" aria-labelledby="conteudo" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="conteudo">Formação</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="col col-md-6">
-                                                    <select name="topico" id="topico" class="custom-select">
-                                                        <option value="#"> # </option>
-                                                    </select>
-                                                </div>
+                    <div class="modal fade" id="s{{$sistemas->id}}" tabindex="-1" aria-labelledby="s{{$sistemas->id}}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="s{{$sistemas->id}}">Formação</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="POST">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col col-sm col-lg-8">
+                                                <select name="indice" id="indice" class="custom-select">
+                                                    @foreach ($indices as $i)
+                                                        <option value="{{$i->id}}"> {{$i->nome}} </option> 
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                                            <div class="col col-sm col-lg-4">
+                                                <input type="text" name="ordem" id="ordem" class="form-control" placeholder="ordem">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Gravar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 @endforeach
             <!-- #Modal de Conteúdo -->
 @endsection

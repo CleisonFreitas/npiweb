@@ -139,7 +139,7 @@
                                 <div class="form-group row">
                                     <label for="nome" class="col-12 col-sm-3 col-lg-2 col-form-label">Descrição/Ordem:</label>
                                     <div class="col-7 col-sm-5 col-lg-5">
-                                        <input type="text" name="descricao" id="curso" class="form-control" placeholder="Nome do Índice">
+                                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome do Índice">
                                     </div>
                                     <div class="col-5 col-sm-3 col-lg-3">
                                         <input type="text" name="ordem" id="ordem" class="form-control" autofocus="focus" placeholder="Ordem">
