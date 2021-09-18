@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => '10.0.0.9-dev',
+    'version' => '10.0.0.9-dev',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'e7184c4d670e2c166e55f9b5689a9e814554156e',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -431,12 +431,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => '10.0.0.9-dev',
+      'version' => '10.0.0.9-dev',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'e7184c4d670e2c166e55f9b5689a9e814554156e',
     ),
     'laravel/sail' => 
     array (
@@ -464,6 +464,15 @@
       array (
       ),
       'reference' => 'e2478cd0342a92ec1c8c77422553bda8ee004fd0',
+    ),
+    'laravelista/lumen-vendor-publish' => 
+    array (
+      'pretty_version' => '8.0.0',
+      'version' => '8.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0ca682e0d236f8b085e6ac2cf33912ddb4702f52',
     ),
     'league/commonmark' => 
     array (
@@ -565,6 +574,15 @@
       array (
       ),
       'reference' => '06e2ebd25f2869e54a306dda991f7db58066f7f6',
+    ),
+    'owen-it/laravel-auditing' => 
+    array (
+      'pretty_version' => 'v12.0.0',
+      'version' => '12.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5659c736f17aa75805b60c0d0a23783f3bf5c2a1',
     ),
     'phar-io/manifest' => 
     array (

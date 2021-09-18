@@ -10,6 +10,16 @@ class LabModel extends Model
     use HasFactory;
 
     protected $table = 'laboratorio';
-    protected $fillable = ['id','descricao','form_id','indi_id','cont_id','iframe','categoria','nivel','ordem','operador'];
+    protected $fillable = ['id',
+    'descricao',
+    'form_id',
+    'tipo',
+    'cont_id',
+    'iframe',
+    'categoria',
+    'nivel',
+    'etiqueta',
+    'ordem',
+    'operador'];
     public $timestamps = true;
 }

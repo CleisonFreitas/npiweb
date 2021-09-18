@@ -17,13 +17,14 @@ class CreateLabModelsTable extends Migration
             $table->id();
             $table->string('descricao',80);
             $table->string('categoria',20);
-            $table->string('nivel',15);
+            $table->string('tipo',10);
+            $table->enum('nivel',['N','E','Q']);
             $table->integer('form_id');
-            $table->integer('indi_id');
-            $table->integer('cont_id');
-            $table->string('iframe');
-            $table->float('ordem');
-            $table->string('operador',30);
+            $table->integer('cont_id')->nullable();
+            $table->string('iframe')->nullable();
+            $table->string('etiqueta',30);
+            $table->string('ordem',30);
+            $table->string('operador',50);
             $table->timestamps();
         });
     }

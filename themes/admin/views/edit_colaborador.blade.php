@@ -94,6 +94,7 @@
             <div class="row my-2">
                 <div class="col-10">
                     <button type="submit" class="btn btn-sm btn-secondary">Atualizar</button>
+                    <input type="text" name="login" value="{{Auth::guard('admin')->user()->name}}" id="" class="form-control">
                 </div>
             </div>
         </form>

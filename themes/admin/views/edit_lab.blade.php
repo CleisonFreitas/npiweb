@@ -14,90 +14,124 @@
     @foreach($formacoes as $f)
         <div class="row">
             <div class="col-4 col-sm-3 col-lg-2">
-                <input type="text" name="codigo" id="codigo" value="{{$f->id}}" class="form-control"  readonly style="background-color:white;">
+                <input type="text" name="codigo" id="codigo" value="{{$f->id}}" class="form-control"  readonly>
             </div>
         </div>
         <div class="form-group row">
-            <div class="col-10 col-sm-8 col-lg-8">
+            <div class="col-8 col-sm-8 col-lg-8" >
                 <select class="custom-select" name="formacoes" id="laboratorio">
                     <option value="{{$f->id}}">{{$f->descricao}}</option>
                 </select>
             </div>
-            <div class="col">
-                <button type="submit" class="btn btn-info" disabled>
-                    <i class="bi bi-pencil-square"></i>&nbsp;Editar
-                </button>
+            <div class="col-4 col-sm-3 col-lg-2">
+                <a href="{{ route('admin.laboratorio') }}" class="btn btn-secondary" >
+                    <i class="bi bi-arrow-return-left "></i>Voltar
+                </a>
             </div> 
         </div>
-
-        <div class="row g-4">
-            <div class="col col-lg-7">
-                <div class="card shadow mb-4 mt-3">
-                    <div class="card-header py-3 bg-secondary">
-                        <h6 class="m-0 font-weight-bold text-light">Conteúdo</h6>
+        @endforeach
+        <div class="row mt-2">
+            <div class="col-12 col-lg-12">
+                <h1 class="h3 mb-4 text-gray-600">Formulário de Construção</h1>
+            </div>
+            <div class="col-12 col-sm-12 col-lg-5 mb-4 mt-1">
+                <!-- Formação -->
+                <form action="{{ route('admin.updt_lab') }}" method="POST">
+                    @csrf
+                    <div class="form-group row">
+                        @foreach ($formacoes as $f)
+                            <input type="hidden" name="categoria" value="{{ $f->categoria }}" id="">
+                            <input type="hidden" name="nivel" value="{{ $f->nivel }}" id="">
+                            <input type="hidden" name="form_id" value="{{ $f->id }}" id="">
+                            <input type="hidden" name="operador" value="{{ Auth::guard('admin')->user()->name }}" id="">
+                        @endforeach
+                        
+                        <label for="indice" class="col-form-label">Tipo: &nbsp;</label>
+                        <div class="col">
+                            <select name="tipo" id="tipo" class="custom-select">
+                                <option value="I">Índice</option>
+                                <option value="C">Conteúdo</option>
+                            </select>    
+                        </div>    
                     </div>
-                        <div class="card-body ">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="10" style="text-align:center;">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Título</th>
-                                            <th>Adicionar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($sistemas as $sistemas)
-                                            <tr>
-                                                <td>{{ $sistemas->id }}</td>
-                                                <td>{{ $sistemas->titulo }}</td>
-                                                <td>
-                                                    <a href="" data-toggle="modal" class=" btn btn-primary btn-cicle" data-target="#s{{$sistemas->id}}">
-                                                        <i class="bi bi-plus-circle"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="form-group row">
+                        <label for="titulo" class="col-form-label">Título: </label>
+                        <div class="col">
+                            <input type="text" name="descricao" id="" class="form-control" placeholder="Título">
+                        </div>    
+                    </div>
+                    <div class="form-group row">
+                        <label for="id" class="col-form-label" style="margin-right:25px;">ID:</label>
+                        <div class="col">
+                            <input type="text" name="cont_id" id="" class="form-control" placeholder="Código">
                         </div>
+                        <div class="col">
+                            <input type="text" name="ordem" id="" class="form-control" placeholder="Ordem">
+                        </div>      
+                    </div>   
+                    <div class="form-group row">
+                        <label for="ident" class="col-form-label">Marca:</i></label>
+                        <div class="col">
+                            <input type="text" name="etiqueta" id="" class="form-control" placeholder="Digite um código para etiqueta">
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-sm" >Enviar</button>
+                            <button type="reset" class="btn btn-secondary btn-sm">Limpar</button>
+                        </div>
+                       
                     </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="s{{$sistemas->id}}" tabindex="-1" aria-labelledby="s{{$sistemas->id}}" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="s{{$sistemas->id}}">Formação</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                </form>
+                <!-- #Formação -->     
+            </div>
+            <!-- Conteudo -->
+            <div class="col col-sm-12 col-lg-7 bg-light" >
+                    <!-- Accordion -->
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                    <h5><i class="fas fa-video"></i>&nbsp;Conteúdo</h5>
+                            </div>
+                            @foreach($laboratorio as $lab)
+                                @if($lab->tipo == "I")
+                                <div class="card-header bg-gray-300 border-1" id="headon">
+                                    <h2 class="mb-0">
+                                        <a class="btn btn-primary" type="button" data-toggle="collapse" data-target="#e_{{$lab->etiqueta }}" aria-expanded="false" aria-controls="e_{{$lab->etiqueta }}" style="width:100%">
+                                            {{  $lab->descricao }}
+                                        </a>
+                                    </h2>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col col-sm col-lg-8">
-                                                <select name="indice" id="indice" class="custom-select">
-                                                    @foreach ($indices as $i)
-                                                        <option value="{{$i->id}}"> {{$i->nome}} </option> 
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col col-sm col-lg-4">
-                                                <input type="text" name="ordem" id="ordem" class="form-control" placeholder="ordem">
+                                @elseif($lab->tipo == "C")
+                                    <div id="e_{{$lab->etiqueta }}" class="collapse" aria-labelledby="headon" data-parent="#accordionExample">
+                                        <div class="card-body bg-gray-300">
+                                            <hr class="sidebar-divider mt-0">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <span class="btn btn-secondary">
+                                                        <i class="far fa-play-circle"></i>&nbsp; {{  $lab->descricao }}
+                                                    </span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="btn btn-secondary">
+                                                        {{  $lab->ordem }}
+                                                    </span>
+                                                </div>
+                                                <div class="col">
+                                                    <span class="btn btn-danger">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Gravar</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                    </div>
-                @endforeach
-            <!-- #Modal de Conteúdo -->
+                      </div>
+                <!-- #Accordion -->
+            </div>
+        </div>
+        <!-- #Conteúdo -->
+            
 @endsection

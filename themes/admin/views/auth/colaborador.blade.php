@@ -29,9 +29,9 @@
                     <label for="email">Email: </label>
                     <input type="text" class="form-control" @error('email') is-invalid @enderror name="email" value="{{ old('email') }}" required autocomplete="email"  id="" placeholder="example@example.com.br">
                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                         @enderror
                 </div>
             </div>

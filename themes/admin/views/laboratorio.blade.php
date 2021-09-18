@@ -32,6 +32,7 @@
 
                         <form class="mt-4" action="{{route('admin.edit_show')}}" method="POST">
                             @csrf
+                            
                             <div class="form-group row">
                                 <div class="col col-md-10">
                                     <select class="custom-select" name="conteudo" id="laboratorio">
@@ -75,7 +76,8 @@
                                     <label for="categoria" class="col-12 col-sm-12 col-lg-2 col-form-label">Categoria/Nível</label>
                                     <div class="col-6 col-sm-6 col-lg-4">
                                         <select name="categoria" id="" class="custom-select">
-                                            <option value="funerario">Funerário</option>
+                                            <option value="assistencial">Funerário - Assistencial</option>
+                                            <option value="estoque">Funerário - Estoque</option>
                                             <option value="cemiterio">Cemitério</option>
                                             <option value="clinica">Clínica</option>
                                             <option value="contabil">Contábil</option>
@@ -88,9 +90,9 @@
                                     </div>
                                     <div class="col-6 col-sm-6 col-lg-4">
                                         <select name="nivel" id="nivel" class="custom-select">
-                                            <option value="normal">Normal</option>
-                                            <option value="especifico">Específico</option>
-                                            <option value="equipe">Equipe</option>
+                                            <option value="N">Normal</option>
+                                            <option value="E">Específico</option>
+                                            <option value="Q">Equipe</option>
                                         </select>
                                     </div>
                                 </div>

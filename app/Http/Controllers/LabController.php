@@ -18,28 +18,23 @@ class LabController extends Controller
 
     public function view_lab(){
         $laboratorio = FormModel::all();
-        /*$lab = DB::table('indices')
-            ->join('formacoes', 'id', '=', 'form_id')
-            ->get();*/
+        
         return view('laboratorio')->with('laboratorio',$laboratorio);
     }
     public function edit_show(Request $request){
         $id = $request->input('conteudo');
-        $form = FormModel::all()->where('id',$id);
-        foreach($form as $f){
-            $categoria = $f->categoria;
-        }
-        $indi = IndiModel::all()->where('form_id',$id);
-        $sist = SistemasModel::all()->where('descricao',$categoria);
-        return view('edit_lab')->with(array('formacoes' => $form,'indices' => $indi,'sistemas' => $sist));
-    }/*
-    public function edit_form(Request $request){
-        $id = $request->input('conteudo');
-        $laboratorio = LabModel::all()->where('id',$id);
-        foreach($laboratorio as $lab){
-            $categoria = $lab->categoria;
-        }
-        $con_sistema = SistemasModel::all()->where('tipo',$categoria);
-        return view('edit_lab')->with(array('laboratorio' =>$laboratorio, 'sistemas' =>$con_sistema));
-    }*/
+        $formacoes = FormModel::all()->where('id',$id);
+        $laboratorio = LabModel::orderBy('ordem','ASC')
+        ->where('form_id',$id)->get();
+        return view('edit_lab')->with(array(
+            'formacoes' => $formacoes,
+            'laboratorio' => $laboratorio));
+    }
+    public function updt_lab(Request $request){
+     /*   $cont = $request->input('cont_id');
+        $sist = SistemasModel::all()->where('id',$cont);
+*/
+        LabModel::create($request->all());
+        return redirect()->route('admin.laboratorio');
+    }
 }
