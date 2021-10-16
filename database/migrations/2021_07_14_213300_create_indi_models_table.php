@@ -14,7 +14,7 @@ class CreateIndiModelsTable extends Migration
     public function up()
     {
         Schema::create('indices', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('descricao',80);
             $table->string('categoria',20);
             $table->integer('form_id');

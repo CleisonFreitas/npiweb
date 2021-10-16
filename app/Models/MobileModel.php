@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class MobileModel extends Model implements Auditable
+
+class MobileModel extends Model 
 {
-    use \OwenIt\Auditing\Auditable;
     
     protected $table = 'mobile';
     protected $fillable = [

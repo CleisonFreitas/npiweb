@@ -14,7 +14,6 @@ class LabModel extends Model
     'descricao',
     'form_id',
     'tipo',
-    'cont_id',
     'iframe',
     'categoria',
     'nivel',

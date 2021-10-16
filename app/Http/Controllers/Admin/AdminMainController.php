@@ -103,7 +103,7 @@ class AdminMainController extends Controller
 
     // Contatos(Notificações)
     public function view_request(){
-        $analise = db::table('requests')->where('status','Em análise')->get();
+        $analise = db::table('requests')->where('status','Em analise')->get();
         $desenvolvidas = db::table('requests')->where('status','desenvolvida')->get();
         $pendentes = db::table('requests')->where('status','Pendente')->get();
         $descartadas = db::table('requests')->where('status','anulada')->get();

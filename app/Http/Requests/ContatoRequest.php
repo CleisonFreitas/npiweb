@@ -29,7 +29,7 @@ class ContatoRequest extends FormRequest
                 'sistema'=>['bail','required',
                 Rule::in(['Funerário','Cemitério','Clínica','Contábil','Emissor','Mobile','Veicular','Telemarketing']) ],
                 'title'=>'bail|required|min:8|max:50',
-                'nome'=>'bail|required|min:12|max:80',
+                'nome'=>'bail|required|max:80',
                 'email'=>'bail|required|min:10|max:100,email:rfc,dns',
                 'descricao'=>'bail|required|min:3|max:1000'
           

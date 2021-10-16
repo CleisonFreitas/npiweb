@@ -13,7 +13,7 @@ use App\Models\IndiModel;
 use App\Models\SistemasModel;
 
 
-class LabController extends Controller
+class LabController extends Controller 
 {
 
     public function view_lab(){
@@ -21,20 +21,17 @@ class LabController extends Controller
         
         return view('laboratorio')->with('laboratorio',$laboratorio);
     }
-    public function edit_show(Request $request){
-        $id = $request->input('conteudo');
+    public function edit_show($id){
         $formacoes = FormModel::all()->where('id',$id);
         $laboratorio = LabModel::orderBy('ordem','ASC')
         ->where('form_id',$id)->get();
+        
         return view('edit_lab')->with(array(
             'formacoes' => $formacoes,
             'laboratorio' => $laboratorio));
     }
     public function updt_lab(Request $request){
-     /*   $cont = $request->input('cont_id');
-        $sist = SistemasModel::all()->where('id',$cont);
-*/
         LabModel::create($request->all());
-        return redirect()->route('admin.laboratorio');
+        return redirect()->back();
     }
 }

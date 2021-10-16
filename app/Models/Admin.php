@@ -6,11 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class Admin extends Authenticatable implements Auditable
+class Admin extends Authenticatable
 {
-    use \OwenIt\Auditing\Auditable;
 
     use HasFactory, Notifiable;
 

@@ -27,33 +27,47 @@
                     
                     <!-- Produção -->
                     <div class="tab-pane fade show active mb-2" id="produção" role="tabpanel" aria-labelledby="home-tab">
-                        
-                        <h2 class="h5 mb-4 mt-3 text-dark">Controle de Formações</h2>
-
-                        <form class="mt-4" action="{{route('admin.edit_show')}}" method="POST">
-                            @csrf
-                            
-                            <div class="form-group row">
-                                <div class="col col-md-10">
-                                    <select class="custom-select" name="conteudo" id="laboratorio">
-                                        @if($laboratorio != null)
-                                            @foreach($laboratorio as $lab)
-            
-                                                <option value="{{$lab->id}}">{{$lab->id}} - {{$lab->descricao}}</option>
-            
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>    
+                        <div class="card shadow">
+                            <div class="card-header bg-white">
+                                <h2 class="h5 mt-2 text-primary">Controle de Formações</h2>
                             </div>
-                            <div class="form-group row">
-                                <div class="col col-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-plus-circle"></i></i>&nbsp;Gerar
-                                    </button>
+                            <div class="card-body">
+                                <div class="responsive-table">
+                                    <table class="table table-hover" id="dataTable" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Descrição</th>
+                                                <th>Data</th>
+                                                <th>Responsável</th>
+                                                <th>Editar/Excluir</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+        
+                                            @foreach ($laboratorio as $lab )
+                                            <tr>
+                                                <td>{{ $lab->id }}</td>
+                                                <td>{{ $lab->descricao }}</td>
+                                                <td>{{ date('d/m/Y', strtotime($lab->created_at)) }}</td>
+                                                <td>{{ $lab->operador }}</td>
+                                                <td>
+                                                    <a href="{{route('admin.edit_show',$lab->id)}}" class="btn btn-sm btn-secondary">Gerar</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                           </form>
+                            <div class="card-footer bg-white">
+                                <h6 class="h6 text-secondary">Clique em "Gerar" para editar a formação ou acesse a aba "Formação" para criar uma nova!</h5>
+                            </div>
+                        </div>
+                        
+
+                        
                     </div>
                     <!-- #Produção -->
 

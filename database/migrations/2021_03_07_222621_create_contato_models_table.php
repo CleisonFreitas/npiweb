@@ -14,13 +14,15 @@ class CreateContatoModelsTable extends Migration
     public function up()
     {
         Schema::create('requests', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('sistema',40);
+            $table->string('status', 20)->nullable()->default('Pendente');
             $table->string('title',150);
+            $table->string('login', 80)->nullable();
             $table->string('nome',50);
             $table->string('email',80);
-            $table->string('telefone',16);
-            $table->string('whatsapp',16);
+            $table->string('telefone',16)->nullable();
+            $table->string('whatsapp',16)->nullable();
             $table->string('descricao');
             $table->timestamps();
         });

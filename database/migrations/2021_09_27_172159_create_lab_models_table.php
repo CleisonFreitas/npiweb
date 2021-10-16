@@ -14,16 +14,16 @@ class CreateLabModelsTable extends Migration
     public function up()
     {
         Schema::create('laboratorio', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('descricao',80);
             $table->string('categoria',20);
             $table->string('tipo',10);
             $table->enum('nivel',['N','E','Q']);
-            $table->integer('form_id');
-            $table->integer('cont_id')->nullable();
+            $table->integer('form_id')->unsigned();
             $table->string('iframe')->nullable();
             $table->string('etiqueta',30);
             $table->string('ordem',30);
+            $table->foreign('form_id')->references('id')->on('formacoes');
             $table->string('operador',50);
             $table->timestamps();
         });

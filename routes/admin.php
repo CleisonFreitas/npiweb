@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\AdminMainController;
+use App\Http\Controllers\LabController;
 Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(function() {
    
     Route::middleware(['guest:admin'])->group(function(){
@@ -100,9 +101,9 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
 
 
         // Laboratório - Admin
-        Route::get('/controle/laboratorio',                  [App\Http\Controllers\LabController::class,'view_lab'])->name('laboratorio');       //    Route::post('/controle/laboratorio/{id}',           [App\Http\Controllers\LabController::class,'edit_show'])->name('edit_show');
-        Route::post('/controle/laboratorio/edit',            [App\Http\Controllers\LabController::class,'edit_show'])->name('edit_show');
-        Route::post('/controle/laboratorio/atua',            [App\Http\Controllers\LabController::class,'updt_lab'])->name('updt_lab');
+        Route::get('/controle/laboratorio',                     [LabController::class,'view_lab'])->name('laboratorio');       //    Route::post('/controle/laboratorio/{id}',           [App\Http\Controllers\LabController::class,'edit_show'])->name('edit_show');
+        Route::get('/controle/laboratorio/edit/{id}',            [LabController::class,'edit_show'])->name('edit_show');
+        Route::post('/controle/laboratorio/atua',               [LabController::class,'updt_lab'])->name('updt_lab');
 
     //    Route::post('/controle/laboratorio/editar',         [App\Http\Controllers\LabController::class,'edit_form'])->name('lab_edit');
         
