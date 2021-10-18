@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class CemiterioModel extends Model 
 {
-    use \OwenIt\Auditing\Auditable;
 
     protected $table = 'cemiterio';
     protected $fillable = [

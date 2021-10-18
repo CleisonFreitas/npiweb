@@ -91,10 +91,18 @@
                                     @if($lab->tipo == "I")
                                     <div class="card-header bg-gray-300 border-1" id="headon">
                                         <h2 class="mb-0">
-                                            <a class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#e_{{$lab->etiqueta }}" aria-expanded="false" aria-controls="e_{{$lab->etiqueta }}" style="width:100%">
-                                                {{ $lab->etiqueta }} - {{  $lab->descricao }}
-                                            </a>
+                                            <div class="row">
+                                                <div class="col-12 col-sm-10 col-lg-11">
+                                                    <a class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#e_{{$lab->etiqueta }}" aria-expanded="false" aria-controls="e_{{$lab->etiqueta }}" style="width:100%">
+                                                        {{ $lab->etiqueta }} - {{  $lab->descricao }} 
+                                                    </a>
+                                                </div>
+                                                <div class="col-12 col-sm-10 col-lg-1">
+                                                    <a href="{{ route('admin.del_lab',$lab->id) }}" class="btn btn-circle" style="width:100%"><i class="far fa-trash-alt"></i></a>
+                                                </div>
+                                            </div>
                                         </h2>
+                                        
                                     </div>
                                     @elseif($lab->tipo == "C")
                                         <div id="e_{{$lab->etiqueta }}" class="collapse" aria-labelledby="headon" data-parent="#accordionExample">
@@ -112,9 +120,9 @@
                                                         </span>
                                                     </div>
                                                     <div class="col col-sm-6 col-lg-2">
-                                                        <span class="btn btn-danger">
+                                                        <a href="{{ route('admin.del_lab',$lab->id) }}" class="btn btn-danger">
                                                             <i class="far fa-trash-alt"></i>
-                                                        </span>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

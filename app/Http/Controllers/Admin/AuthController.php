@@ -65,7 +65,7 @@ class AuthController extends Controller
         //return redirect(RouteServiceProvider::ADMIN);
     }
     public function editar($id){
-       $admin = Admin::all()->where('id',$id);
+       $admin = Admin::all()->where('id',$id)->where('email','!=','admin@npitecnologia.com.br');
         return view('edit_colaborador')->with('admins',$admin);
     }
     public function atualizar(Request $request, $id) {

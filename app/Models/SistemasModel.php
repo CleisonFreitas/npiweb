@@ -19,7 +19,6 @@ class SistemasModel extends Model
         'descricao' => 'string',
         'modulo' => 'string',
         'menu' => 'string',
-        'tipo' => 'string',
         'token' => 'string',
     ];
 
@@ -28,7 +27,6 @@ class SistemasModel extends Model
         'descricao',
         'modulo',
         'menu',
-        'tipo',
         'token',
     ];
 

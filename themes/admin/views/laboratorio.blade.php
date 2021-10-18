@@ -18,10 +18,10 @@
                     </li>
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#formação" role="tab" aria-controls="formação" aria-selected="false">Formação</a>
-                    </li>
+                    </li><!--
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="contact-tab" data-toggle="tab" href="#indice" role="tab" aria-controls="indice" aria-selected="false">Índice</a>
-                    </li>
+                    </li> -->
                   </ul>
                   <div class="tab-content" id="myTabContent">
                     
@@ -52,7 +52,8 @@
                                                 <td>{{ date('d/m/Y', strtotime($lab->created_at)) }}</td>
                                                 <td>{{ $lab->operador }}</td>
                                                 <td>
-                                                    <a href="{{route('admin.edit_show',$lab->id)}}" class="btn btn-sm btn-secondary">Gerar</a>
+                                                    <a href="{{route('admin.edit_show',$lab->id)}}" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i></a>
+                                                    <a href="{{route('admin.form_del',$lab->id)}}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach

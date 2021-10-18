@@ -31,7 +31,17 @@ class LabController extends Controller
             'laboratorio' => $laboratorio));
     }
     public function updt_lab(Request $request){
-        LabModel::create($request->all());
-        return redirect()->back();
+     
+           LabModel::create($request->all());
+           return redirect()->back();
     }
+    public function del_lab($id){
+        $laboratorio = LabModel::find($id);
+        $laboratorio->delete();
+
+        return redirect()->back();
+     
+    }
+
+    
 }

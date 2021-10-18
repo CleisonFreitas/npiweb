@@ -13,7 +13,7 @@
             @csrf
             <div class="row">
                 <div class="col-10 col-md-3">
-                    <input type="date" class="form-control" value="{{date('Y-m-d', strtotime($admin->created_at))}}" name="" id=""><br>
+                    <input type="date" class="form-control" value="{{date('Y-m-d',strtotime($admin->created_at))}}" name="" id=""><br>
                 </div>
                 <div class="col-10 col-md-3">
                     <select class="form-control" name="status" id="">
