@@ -30,7 +30,7 @@
             <div class="row my-2">
                 <div class="col-10 col-md-5">
                     <label for="usuario">Usuário: </label>
-                    <input type="text" class="form-control" value="{{$admin->name}}" name="name" id="">
+                    <input type="text" class="form-control" value="{{$admin->name}}" name="name" id="" readonly>
                 </div>
                 <div class="col-10 col-md-5">
                     <label for="email">Email: </label>
@@ -94,7 +94,7 @@
             <div class="row my-2">
                 <div class="col-10">
                     <button type="submit" class="btn btn-sm btn-secondary">Atualizar</button>
-                    <input type="text" name="login" value="{{Auth::guard('admin')->user()->name}}" id="" class="form-control">
+                    
                 </div>
             </div>
         </form>

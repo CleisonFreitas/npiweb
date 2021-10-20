@@ -27,51 +27,41 @@
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
                         <!-- Card da tabela -->
-                        <div class="card border-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-bordered " id="dataTable" width="100%" cellspacing="0">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>Cadastros</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach ($funerario as $valor)
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                        <tr>                               
-                                            <td>
-                                                <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#view_{{$valor->id}}" style="width:100%; text-align:left;"><i class="bi bi-play-circle-fill"></i>&nbsp;{{$valor->title}}</button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                         <!-- Accordion -->
+                         <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header bg-light text-secondary shadow">
+                                        <h5><i class="fas fa-film"></i>&nbsp;Conteúdo</h5>
+                                </div>
+                                <small> 
+                                    <div class="card-header bg-gray-300 border-1" id="headon">
+                                        <h2 class="mb-0">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-10 col-lg-11">
+                                                    <a class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#etiqueta" aria-expanded="false" aria-controls="etiqueta" style="width:100%">
+                                                        01 - Cadastros
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </h2>
+                                        
+                                    </div>
+                                    
+                                        <div id="etiqueta" class="collapse" aria-labelledby="headon" data-parent="#accordionExample">
+                                            <div class="card-body bg-gray-300">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6 col-lg-12 mb-1">
+                                                        <a href="#" class="btn btn-secondary" style="width:90%;">
+                                                            <i class="far fa-play-circle"></i>&nbsp; Pagamentos
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   </small>
                             </div>
-                        </div>
+                          </div>
+                    <!-- #Accordion -->
                         <!-- #Card da tabela -->
                     </div>
                     <!-- Card do vídeo -->

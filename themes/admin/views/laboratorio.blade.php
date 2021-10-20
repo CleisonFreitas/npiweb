@@ -127,10 +127,10 @@
                     </div>
                     <!-- #Criação de Formação -->
 
-                    <!-- Criação de Índice -->
+                    <!-- Criação de Índice (Desativado temporariamente)-->
                     <div class="tab-pane fade" id="indice" role="tabpanel" aria-labelledby="contact-tab">
                         <h2 class="h5 mb-4 mt-3 text-dark">Criação de Índice</h2>
-                            <form class="mt-4" action="{{ route('admin.indi_novo') }}" method="POST">
+                            <form class="mt-4" action="#" method="POST">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="operador/data" class="col-12 col-sm-12 col-lg-2 col-form-label">Operador/Data:</label>

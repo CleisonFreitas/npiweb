@@ -87,7 +87,7 @@
                                 <div class="card-header bg-light text-secondary shadow">
                                         <h5><i class="fas fa-film"></i>&nbsp;Conteúdo</h5>
                                 </div>
-                                @foreach($laboratorio as $lab)
+                                <small>@foreach($laboratorio as $lab)
                                     @if($lab->tipo == "I")
                                     <div class="card-header bg-gray-300 border-1" id="headon">
                                         <h2 class="mb-0">
@@ -109,26 +109,48 @@
                                             <div class="card-body bg-gray-300">
                                                 <hr class="sidebar-divider mt-0">
                                                 <div class="row">
-                                                    <div class="col col-sm-6 col-lg-7">
-                                                        <span class="btn btn-secondary">
+                                                    <div class="col-12 col-sm-6 col-lg-7 mb-1">
+                                                        <button class="btn btn-secondary" data-toggle="modal" data-target="#c_{{$lab->id}}">
                                                             <i class="far fa-play-circle"></i>&nbsp; {{  $lab->descricao }}
-                                                        </span>
+                                                        </button>
                                                     </div>
-                                                    <div class="col col-sm-6 col-lg-3">
+                                                    <div class="col-6 col-sm-6 col-lg-3">
                                                         <span class="btn btn-secondary">
                                                             {{  $lab->ordem }}
                                                         </span>
                                                     </div>
-                                                    <div class="col col-sm-6 col-lg-2">
+                                                    <div class="col-6 col-sm-6 col-lg-2">
                                                         <a href="{{ route('admin.del_lab',$lab->id) }}" class="btn btn-danger">
                                                             <i class="far fa-trash-alt"></i>
                                                         </a>
                                                     </div>
                                                 </div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="c_{{$lab->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">{{$lab->etiqueta }} - {{  $lab->descricao }}</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="embed-responsive embed-responsive-16by9">
+                                                                    <iframe class="embed-responsive-item" src="{{$lab->iframe}}" allowfullscreen></iframe>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- #Modal -->
                                             </div>
                                         </div>
                                     @endif
-                                @endforeach
+                                @endforeach</small>
                             </div>
                           </div>
                     <!-- #Accordion -->

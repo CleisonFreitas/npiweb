@@ -85,10 +85,8 @@ class AuthController extends Controller
 
     }
     public function deletar($id){
-        $admin = Admin::all()->where('id',$id,)->first();
-        if($admin->email = 'admin@npitecnologia.com.br'){
-            return redirect()->route('admin.register')->withError();
-        }
+        $admin = Admin::find($id);
+    
         $admin->delete();
 
         if(Auth::guard('admin')->user()->id === $admin->id){
