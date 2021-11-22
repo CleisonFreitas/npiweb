@@ -18,6 +18,8 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 */
+
+// Configurado para acessar o Tema
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 
