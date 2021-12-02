@@ -18,6 +18,9 @@ class CreateFormModelsTable extends Migration
             $table->string('descricao',80);
             $table->string('categoria',20);
             $table->string('nivel',15);
+            $table->string('ordem',3);
+            $table->string('status',1);
+            $table->text('sobre');
             $table->string('operador',20);
             $table->timestamps();
         });

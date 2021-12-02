@@ -1,4 +1,4 @@
-@extends('blank')
+@extends('layouts.blank')
 <!-- Título -->
 @section('title','-Cemitério')
 <!-- #Título -->

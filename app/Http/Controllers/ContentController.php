@@ -24,6 +24,8 @@ use App\Models\MobileModel;
 
 use App\Models\SavModel;
 
+use App\Models\FormModel;
+
 
 class ContentController extends Controller
 { // Funerário - MA
@@ -34,28 +36,35 @@ class ContentController extends Controller
     }
     
     public function view_ma() {
-        $modA = FunerarioModel::all()
-        ->where('modulo','MA');
-        
-        return view('funerario_assistencial')->with('funerario',$modA); 
+        $img = 'img/funerario.jpg';
+        $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','assistencial'],['status','P']
+        ])->get();
+
+        return view('pages.funerario_assistencial',compact('conteudo','img'));
     }
     // #Funerário - MA
 
     // Funerário - ME
     public function view_me() {
-        $modE = FunerarioModel::all()
-        ->where('modulo','ME');
-        
-        return view('funerario_estoque')->with('funerario',$modE); 
+        $img = 'img/caixao.jpg';
+        $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','estoque'],['status','P']
+        ])->get();
+
+        return view('pages.funerario_estoque',compact('conteudo','img'));
     }
     // #Funerário - ME
 
     // Cemitério
 
    public function view_cem(){
-       $cemiterio = CemiterioModel::all();
+       $img = 'img/cemiterio.jpg';
+       $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','cemiterio'],['status','P']
+        ])->get();
 
-       return view('cemiterio')->with('cemiterio',$cemiterio);
+       return view('pages.cemiterio',compact('conteudo','img'));
    }
    
     // #Cemitério
@@ -63,55 +72,72 @@ class ContentController extends Controller
     // Contábil
 
    public function view_con(){
-    $contabil = ContabilModel::all();
+    $img = 'img/contabil.jpg';
+    $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','contabil'],['status','P']
+        ])->get();
 
-    return view('contabil')->with('contabil',$contabil);
+        return view('pages.contabil',compact('conteudo','img'));
     }
     // #Contábil
 
     // Clínica
     public function view_cli(){
-        $clinica = ClinicaModel::all();
-        
-        return view('clinica')->with('clinica',$clinica);
+    $img = 'img/clinica.jpg';
+    $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','clinica'],['status','P']
+        ])->get();
+
+        return view('pages.clinica',compact('conteudo','img'));
     }
     // #Clínica
 
     // Mobile
     
     public function view_mut(){
-        $mobile = MobileModel::all()
-        ->where('modulo','Mutare');
-        
-        return view('mobile_mutare')->with('mobile',$mobile);
+    $img = 'img/mobile.jpg';
+    $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','mobile'],['status','P']
+        ])->get();
+
+        return view('pages.mobile',compact('conteudo','img'));
     }
     // #mobile
 
     // Emissor
     public function view_emi(){
-        $emissor = EmissorModel::all();
-        
-        return view('emissor')->with('emissor',$emissor);
+    $img = 'img/emissor.jpg';
+    $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','emissor'],['status','P']
+        ])->get();
+
+        return view('pages.emissor',compact('conteudo','img'));
     }
     // #Emissor
 
     // Telemarketing
     public function view_tel(){
-        $telemarketing = TeleModel::all();
-        
-        return view('telemarketing')->with('telemarketing',$telemarketing);
+    $img = 'img/telemarketing.jpg';
+    $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','telemarketing'],['status','P']
+        ])->get();
+
+        return view('pages.telemarketing',compact('conteudo','img'));
     }
     // #Telemarketing
     // SAV
     public function view_sav() {
-        $sav = SavModel::all();
-        
-        return view('veicular')->with('veicular',$sav); 
+        $img = 'img/SAV.jpg';
+       $conteudo = FormModel::orderBy('ordem')->where([
+           ['categoria','veicular'],['status','P']
+        ])->get();
+
+        return view('pages.veicular',compact('conteudo','img'));
     }
 
     //Manual
     public function view_man() {
-        return view('manual');
+        return view('pages.manual');
     }
 }
 

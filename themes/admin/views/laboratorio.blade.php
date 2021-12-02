@@ -15,7 +15,7 @@
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#produção" role="tab" aria-controls="produção" aria-selected="true">Produção</a>
-                    </li>
+                    </li>   
                     <li class="nav-item" role="presentation">
                       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#formação" role="tab" aria-controls="formação" aria-selected="false">Formação</a>
                     </li><!--
@@ -36,7 +36,7 @@
                                     <table class="table table-hover" id="dataTable" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Ordem</th>
                                                 <th>Descrição</th>
                                                 <th>Data</th>
                                                 <th>Responsável</th>
@@ -47,15 +47,95 @@
         
                                             @foreach ($laboratorio as $lab )
                                             <tr>
-                                                <td>{{ $lab->id }}</td>
-                                                <td>{{ $lab->descricao }}</td>
+                                                <td>{{ $lab->ordem }}</td>
+                                                <td>{{ $lab->id }} - {{ $lab->descricao }}</td>
                                                 <td>{{ date('d/m/Y', strtotime($lab->created_at)) }}</td>
                                                 <td>{{ $lab->operador }}</td>
                                                 <td>
-                                                    <a href="{{route('admin.edit_show',$lab->id)}}" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#form_{{ $lab->id }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <a href="{{route('admin.edit_show',$lab->id)}}" class="btn btn-info btn-sm"><i class="far fa-list-alt"></i></a>
+                                                    
                                                     <a href="{{route('admin.form_del',$lab->id)}}" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></a>
                                                 </td>
                                             </tr>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="form_{{ $lab->id }}" tabindex="-1" aria-labelledby="form_{{ $lab->id }}Label" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                            <div class="modal-header bg-primary ">
+                                                                <h5 class="modal-title text-white" id="form_{{ $lab->id }}Label">{{ $lab->id }} - {{ $lab->descricao }}</h5>
+                                                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="{{route('admin.form_update',$lab->id)}}" method="post">@csrf @method('PUT')
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <label for="descricao">Descrição:</label>
+                                                                            <input type="text" name="descricao" value="{{ $lab->descricao }}" id="" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <label for="categoria">Categoria</label>
+                                                                            <select name="categoria" id="" class="custom-select">
+                                                                                <option value="{{ $lab->categoria }}">{{ Str::ucfirst($lab->categoria) }} (Atual)</option>
+                                                                                <option value="assistencial">Funerário - Assistencial</option>
+                                                                                <option value="estoque">Funerário - Estoque</option>
+                                                                                <option value="cemiterio">Cemitério</option>
+                                                                                <option value="clinica">Clínica</option>
+                                                                                <option value="contabil">Contábil</option>
+                                                                                <option value="emissor">E-Fiscal</option>
+                                                                                <option value="mobile">Mobile</option>
+                                                                                <option value="veicular">Veicular</option>
+                                                                                <option value="telemarketing">Telemarketing</option>
+                                                                                <option value="outro">Outro</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-4 col-sm-4 col-lg-3">
+                                                                            <label for="ordem">Ordem</label>
+                                                                            <input type="text" name="ordem" value="{{ $lab->ordem }}" id="" class="form-control">
+                                                                        </div>
+                                                                        <div class="col-12 col-sm-6 col-lg-5">
+                                                                            <label for="status">Status</label>
+                                                                            <select name="status" id="" class="custom-select">
+                                                                                @switch($lab->status)
+                                                                                    @case('D')
+                                                                                    <option value="D" selected>Desenvolvimento</option>
+                                                                                    <option value="P">Produção</option>
+                                                                                        @break
+                                                                                    @case('P')
+                                                                                    <option value="D">Desenvolvimento</option>
+                                                                                    <option value="P" selected>Produção</option>
+                                                                                        @break
+                                                                                    @default  
+                                                                                @endswitch
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <label for="sobre">Sobre</label>
+                                                                            <textarea name="sobre" id="" cols="5" rows="5" class="form-control">{{ $lab->sobre }}</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- #Modal -->
                                             @endforeach
                                             
                                         </tbody>
@@ -112,9 +192,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nome" class="col-12 col-sm-12 col-lg-2 col-form-label">Descrição:</label>
-                                    <div class="col-12 col-sm-12 col-lg-8">
+                                    <label for="nome" class="col-12 col-sm-12 col-lg-2 col-form-label">Descrição/Ordem:</label>
+                                    <div class="col-12 col-sm-12 col-lg-6">
                                         <input type="text" name="descricao" id="curso" class="form-control" placeholder="Digite o nome da formação">
+                                    </div>
+                                    <div class="col-12 col-sm-12 col-lg-2">
+                                        <input type="text" name="ordem" id="curso" class="form-control" placeholder="Ordem">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="observao" class="col-12 col-sm-12 col-lg-2 col-form-label">Observação: </label>
+                                    <div class="col-12 col-sm-12 col-lg-8">
+                                        <textarea name="observacao" id="" cols="5" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">

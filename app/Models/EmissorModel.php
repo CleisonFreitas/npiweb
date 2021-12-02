@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
 
-class EmissorModel extends Model implements Auditable
+class EmissorModel extends Model
 {
-    use \OwenIt\Auditing\Auditable;
+   
 
     protected $table = 'emissor';
     protected $fillable = [

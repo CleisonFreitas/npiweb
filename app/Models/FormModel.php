@@ -10,6 +10,6 @@ class FormModel extends Model
     use HasFactory;
 
     protected $table = 'formacoes';
-    protected $fillable = ['id','descricao','categoria','nivel','ordem','operador'];
+    protected $fillable = ['id','descricao','categoria','sobre','status','nivel','ordem','operador'];
     public $timestamps = true;
 }
