@@ -14,6 +14,12 @@ class FormController extends Controller
         FormModel::create($request->all());
         return redirect()->route('admin.laboratorio')->withSuccess('Formação criada com sucesso!');
     }
+
+    public function form_edit($id){
+        $formacoes = FormModel::find($id);
+        return redirect()->route('admin.laboratorio',compact('formacoes'));
+    }
+    
     public function form_del($id){
         
         $laboratorio = LabModel::all()->where('form_id',$id);
@@ -27,5 +33,10 @@ class FormController extends Controller
             $formacoes->delete();
             return redirect()->route('admin.laboratorio')->withInfo('Formação excluída com sucesso!');
         }
+    }
+    public function form_updt(Request $request,$id){
+        $formacoes = FormModel::find($id);
+        $formacoes->update($request->all());
+        return redirect()->route('admin.laboratorio')->with([toast()->info('Formação atualizada com sucesso!')]);
     }
 }

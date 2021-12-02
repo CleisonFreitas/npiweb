@@ -105,7 +105,9 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
 
         // Formações - Admin
         Route::post('/controle/laboratorio/formacao',                   [FormController::class,'form_novo'])->name('form_novo');
+        Route::get('/controle/laboratorio/formacao/edit',               [FormController::class,'form_edit'])->name('form_edit');
         Route::get('/controle/laboratorio/formacao/delete/{id}',        [FormController::class,'form_del'])->name('form_del');
+        Route::put('/controle/laboratorio/formacao/update/{id}',        [FormController::class, 'form_updt'])->name('form_update');
         // Índices - Admin
      //   Route::post('/controle/laboratorio/indice',         [App\Http\Controllers\IndiController::class, 'indi_novo'])->name('indi_novo');
 
