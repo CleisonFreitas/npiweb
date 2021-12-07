@@ -18,14 +18,21 @@
                 também o controle de receitas e despesas da empresa.
             </div>
         </div>
-        <!-- Tabela Cemitério-->
+        @if (isset($conteudo) && ($conteudo)->count())
         <div class="card mb-4">
             <div class="card-header border-0">
                 <i class="bi bi-camera-reels-fill"></i>
                 Sistema de Gestão de Cemitérios
             </div>
-            @include('class.formacao_content')
+                @include('class.formacao_content')
         </div>
-
-        <!-- #Tabela-->
+        @elseif(isset($select_content) && ($select_content)->count())
+            @yield('cemiterio')
+        @else
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 style="text-align: center;"><b>Conteúdo indisponível no momento</b></h5>
+            </div> 
+        </div>
+        @endif
 @endsection

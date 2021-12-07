@@ -18,14 +18,23 @@
                 das atribuições desse módulo. 
             </div>
         </div>
-        <!-- Tabela Estoque-->
+        @if (isset($conteudo) && ($conteudo)->count())
         <div class="card mb-4">
             <div class="card-header border-0">
                 <i class="bi bi-camera-reels-fill"></i>
                 Formação Modulo Estoque
             </div>
-            @include('class.formacao_content')
+                @include('class.formacao_content')
         </div>
-        <!-- #Tabela-->
+        @elseif(isset($select_content) && ($select_content)->count())
+            @yield('estoque')
+        @else
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 style="text-align: center;"><b>Conteúdo indisponível no momento</b></h5>
+            </div> 
+        </div>
+        @endif
+        
 
 @endsection
