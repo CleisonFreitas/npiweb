@@ -32,7 +32,7 @@
                                 <h2 class="h5 mt-2 text-primary">Controle de Formações</h2>
                             </div>
                             <div class="card-body">
-                                <div class="responsive-table">
+                                <div class="table-responsive">
                                     <table class="table table-hover" id="dataTable" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
