@@ -12,6 +12,7 @@ use App\Http\Controllers\EmissorController;
 use App\Http\Controllers\SavController;
 use App\Http\Controllers\MobileController;
 use App\Http\Controllers\TeleController;
+use App\Http\Controllers\ClienteEmpresaController;
 
 Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(function() {
    
@@ -30,7 +31,7 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
         Route::get('/colaborador/excluir/{id}',     [AuthController::class, 'deletar'])->name('deletar');
 
         // Exclusão de Usuários
-       // Route::get('/usuario/exclusao/{id}',  [AdminMainController::class, 'exclu_user'])->name('exclu.user');
+        Route::get('/usuario/exclusao/{id}',        [AdminMainController::class, 'exclu_user'])->name('exclu.user');
         // Sistemas
         Route::get('/funerario',     [AdminMainController::class,'view_fun'])->name('funerario');
         Route::get('/cemiterio',     [AdminMainController::class,'view_cem'])->name('cemiterio');
@@ -119,10 +120,8 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
         Route::get('/controle/laboratorio/delete/{id}',         [LabController::class, 'del_lab'])->name('del_lab');
     //    Route::post('/controle/laboratorio/editar',         [App\Http\Controllers\LabController::class,'edit_form'])->name('lab_edit');
         
-        //Em Desenvolvimento
-        Route::get('/gerenciador', function() {
-            return view('gerenciador');
-        })->name('gerenciador');
+
+        Route::get('gerenciador/clientes', [ClienteEmpresaController::class, 'index'])->name('empresa');
 
     });
 

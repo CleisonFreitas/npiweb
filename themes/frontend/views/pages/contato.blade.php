@@ -63,7 +63,7 @@
         <div class="row mt-1">
             <div class="col-11 col-md-3">
                 <label for="Nome">Telefone/Celular(Opcional): </label>
-                    <input type="text" class="form-control" value="" name="telefone" id="nome" required>
+                    <input type="text" class="form-control" value="" name="telefone" id="txtFone" onkeyup="mask_fone();" required>
             </div>
             <div class="col-11 col-md-3"> 
             <label for="email" >WhatsApp(Opcional): </label>
