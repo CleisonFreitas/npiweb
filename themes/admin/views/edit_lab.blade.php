@@ -10,19 +10,24 @@
 <div class="card shadow">
     <div class="card-body">
         <h1 class="h3 mb-4 text-gray-600">Laboratório</h1>
-
-
         <!-- Espelho para edição de formação -->
-        @foreach($formacoes as $f)
-            <div class="form-group row">
-                <div class="col-8 col-sm-8 col-lg-12" >
-                    <label for="formacao">Formação: </label>
-                    <input type="text" value="{{$f->id}} - {{$f->descricao}}" id="" class="form-control" readonly>
-                    <a href="{{ route('admin.laboratorio') }}" class="btn btn-secondary btn-circle mt-1" >
-                        <i class="fas fa-undo-alt"></i>
-                    </a>
-                </div>
-            </div>
+            @foreach($formacoes as $f)
+                <form action="#" method="post">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-12 col-lg-12" >
+                            
+                            <label for="formacao">Formação: </label>
+                            <input type="text" value="{{$f->id}} - {{$f->descricao}}" id="" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <a href="{{ route('admin.laboratorio') }}" class="btn btn-secondary">
+                                Retornar
+                            </a>
+                        </div>
+                    </div>
+                </form>
             @endforeach
             <div class="row mt-2">
                 <div class="col-12 col-lg-12">

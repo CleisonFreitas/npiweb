@@ -43,7 +43,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.main') }}">
                 <div class="sidebar-brand-icon">
-                    <img src="/img/LogoNPI-remo.png" class="img-fluid" alt="logo">
+                    <img src="{{ asset('img/npi-3D.png')}}" class="img-fluid" alt="logo">
                 </div>
                 <div class="sidebar-brand-text mx-1">Admin&nbsp;</div>
                 <div class="sidebar-brand-text mt-5">
@@ -90,6 +90,23 @@
                     </div>
                 </div>
             </li>
+
+            <!-- Gerenciador -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#gerenciador"
+                    aria-expanded="true" aria-controls="controle">
+                    <i class="fas fa-toolbox"></i>
+                    <span>Gerenciador</span>
+                </a>
+                <div id="gerenciador" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Gerenciar:</h6>
+                        <a class="collapse-item" href="{{ route('admin.empresa')}}">Clientes</a>
+                    </div>
+                </div>
+            </li>
+            <!-- #Gerenciador -->
 
             <!-- Colaborador -->
             <!-- Nav Item - Pages Collapse Menu -->
@@ -165,7 +182,7 @@
             <!-- Nav Item - Tables -->
             <!-- Desenvolvimento/Gerenciador --
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.gerenciador')}}">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Gerenciador</span></a>
             </li>
@@ -467,6 +484,9 @@
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('js/datatables-demo.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Máscara JS -->
+    <script src="{{ asset('js/mascara.js') }}"></script>
  
     @if (session('sucesso'))
     <script>

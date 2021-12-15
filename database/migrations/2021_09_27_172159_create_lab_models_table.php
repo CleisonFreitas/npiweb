@@ -22,7 +22,7 @@ class CreateLabModelsTable extends Migration
             $table->integer('form_id')->unsigned();
             $table->string('iframe')->nullable();
             $table->string('etiqueta',30);
-            $table->string('ordem',30);
+            $table->string('ordem',3);
             $table->foreign('form_id')->references('id')->on('formacoes');
             $table->string('operador',50);
             $table->timestamps();

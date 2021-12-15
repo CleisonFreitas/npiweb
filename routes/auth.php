@@ -1,31 +1,48 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AulaClienteController;
+
 
 Auth::routes();
 
-Route::middleware('theme:frontend')->group(function() {
+Route::middleware(['theme:frontend','auth:web'])->group(function() {
    
         Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-        Route::get('/funerario/assistencial',   [App\Http\Controllers\ContentController::class,'view_ma'])->name('view_ma')->middleware('auth:web');
-        Route::get('/funerario/estoque',        [App\Http\Controllers\ContentController::class,'view_me'])->name('view_me')->middleware('auth:web');
-        Route::get('/cemiterio',                [App\Http\Controllers\ContentController::class,'view_cem'])->name('view_cem')->middleware('auth:web');
-        Route::get('/clinica',                  [App\Http\Controllers\ContentController::class,'view_cli'])->name('view_cli')->middleware('auth:web');
-        Route::get('/contabil',                 [App\Http\Controllers\ContentController::class,'view_con'])->name('view_con')->middleware('auth:web');
-        Route::get('/emissor',                  [App\Http\Controllers\ContentController::class,'view_emi'])->name('view_emi')->middleware('auth:web');
-        Route::get('/mobile/mutare',            [App\Http\Controllers\ContentController::class,'view_mut'])->name('view_mut')->middleware('auth:web');
-        Route::get('/veicular',                 [App\Http\Controllers\ContentController::class,'view_sav'])->name('view_sav')->middleware('auth:web');
-        Route::get('/telemarketing',            [App\Http\Controllers\ContentController::class,'view_tel'])->name('view_tel')->middleware('auth:web');
-        Route::get('/manual',                   [App\Http\Controllers\ContentController::class,'view_man'])->name('view_man')->middleware('auth:web');
+        Route::get('/funerario/assistencial/',  [ContentController::class,'view_ma'])->name('view_ma');
+        Route::get('/funerario/estoque',        [ContentController::class,'view_me'])->name('view_me');
+        Route::get('/cemiterio',                [ContentController::class,'view_cem'])->name('view_cem');
+        Route::get('/clinica',                  [ContentController::class,'view_cli'])->name('view_cli');
+        Route::get('/contabil',                 [ContentController::class,'view_con'])->name('view_con');
+        Route::get('/emissor',                  [ContentController::class,'view_emi'])->name('view_emi');
+        Route::get('/mobile/mutare',            [ContentController::class,'view_mut'])->name('view_mut');
+        Route::get('/veicular',                 [ContentController::class,'view_sav'])->name('view_sav');
+        Route::get('/telemarketing',            [ContentController::class,'view_tel'])->name('view_tel');
+        Route::get('/manual',                   [ContentController::class,'view_man'])->name('view_man');
 
+        //Conteúdo 
+        
+        Route::get('funerario/assistencial/conteudo/{id}',      [AulaClienteController::class, 'assistencial_view'])->name('assistencial_view');
+        Route::get('funerario/estoque/conteudo/{id}',           [AulaClienteController::class, 'estoque_view'])->name('estoque_view');
+        Route::get('cemiterio/conteudo/{form_id}',                   [AulaClienteController::class, 'cemiterio_view'])->name('cemiterio_view');
+        Route::get('clinica/conteudo/{id}',                     [AulaClienteController::class, 'clinica_view'])->name('clinica_view');
+        Route::get('contabil/conteudo/{id}',                    [AulaClienteController::class, 'contabil_view'])->name('contabil_view');
+        Route::get('emissor/conteudo/{id}',                     [AulaClienteController::class, 'emissor_view'])->name('emissor_view');
+        Route::get('mobile/conteudo/{id}',                      [AulaClienteController::class, 'mobile_view'])->name('mobile_view');
+        Route::get('veicular/conteudo/{id}',                    [AulaClienteController::class, 'veicular_view'])->name('veicular_view');
+        Route::get('telemarketing/conteudo/{id}',               [AulaClienteController::class, 'telemarketing_view'])->name('telemarketing_view');
+        
+      //  Route::get('cemiterio/{id}',          [AulaClienteController::class,'conteudo_view'])->name('conteudo_view');
         //Route::Contato
-        Route::get('/contato',          [App\Http\Controllers\ContatoController::class, 'contato'])->name('contato.form')->middleware('auth:web');
-        Route::post('/salvar_contato',  [App\Http\Controllers\ContatoController::class,'save_contato'])->name('contato_save')->middleware('auth:web');
+        Route::get('/contato',          [ContatoController::class, 'contato'])->name('contato.form');
+        Route::post('/salvar_contato',  [ContatoController::class,'save_contato'])->name('contato_save');
 
 
-
-        Route::get('/usuario/exclusao/{id}', [App\Http\Controllers\UserController::class, 'del_user'])->name('del_user')->middleware('auth:web');;
+        Route::get('/usuario/exclusao/{id}', [UserController::class, 'del_user'])->name('del_user');
 
 });
 /*

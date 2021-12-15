@@ -9,6 +9,14 @@ class LabModel extends Model
 {
     use HasFactory;
 
+    public static function aula($id){
+        $select_content = LabModel::orderBy('ordem')->where([
+            ['form_id',$id],
+            ['nivel','N'],
+            ])->get();
+            return $select_content;
+    }
+
     protected $table = 'laboratorio';
     protected $fillable = ['id',
     'descricao',
