@@ -2,7 +2,7 @@
 
 @section('title','Clientes')
 
-@section('admin')
+@section('admin','- Edição de Clientes')
 
 @section('content')
 
@@ -15,8 +15,9 @@
         <h5>Informações do cliente</h5>
     </div>
     <div class="card-body">
-        <form action="#" method="post">
+        <form action="{{ route('admin.empresa.update',$cliente->id)}}" method="post">
             @csrf
+            @method('PUT')
             @include('forms.cliente_cnpj')
         </form>
     </div>

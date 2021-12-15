@@ -2,7 +2,7 @@
 
 @section('title','Clientes')
 
-@section('admin')
+@section('admin','- Cadastro de Clientes')
 
 @section('content')
 
@@ -15,11 +15,13 @@
         <h5>Informações do cliente</h5>
     </div>
     <div class="card-body">
-        <form action="#" method="post">
+        <form action="{{ route('admin.empresa.cad')}}" method="post">
             @csrf
             @include('forms.cliente_cnpj')
         </form>
     </div>
 </div>
+
+@include('lists.empresa_list')
 
 @endsection

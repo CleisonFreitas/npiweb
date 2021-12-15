@@ -120,8 +120,12 @@ Route::prefix('admin')->middleware('theme:admin')->name('admin.')->group(functio
         Route::get('/controle/laboratorio/delete/{id}',         [LabController::class, 'del_lab'])->name('del_lab');
     //    Route::post('/controle/laboratorio/editar',         [App\Http\Controllers\LabController::class,'edit_form'])->name('lab_edit');
         
-
-        Route::get('gerenciador/clientes', [ClienteEmpresaController::class, 'index'])->name('empresa');
+        // Gerenciador de CNPJ's
+        Route::get('gerenciador/clientes',                          [ClienteEmpresaController::class, 'index'])->name('empresa');
+        Route::post('gerenciador/clientes/create',                  [ClienteEmpresaController::class, 'store'])->name('empresa.cad');
+        Route::get('gerenciador/clientes/edit/{id}',                [ClienteEmpresaController::class, 'edit'])->name('empresa.edit');
+        Route::put('gerenciador/clientes/update/{id}',              [ClienteEmpresaController::class, 'update'])->name('empresa.update');
+        Route::get('gerenciador/clientes/delete/{id}',              [ClienteEmpresaController::class, 'destroy'])->name('empresa.del');
 
     });
 
