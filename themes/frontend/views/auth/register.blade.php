@@ -50,6 +50,9 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="********">
                                 </div>
                             </div>
+                            <div class="col">
+                                <input type="hidden" name="cnpj" value="">
+                            </div>
                             <div class="form-row">
                                 <div class="col-md-8">
                                     <button type="submit" class="btn-1 mt-3 mb-2">

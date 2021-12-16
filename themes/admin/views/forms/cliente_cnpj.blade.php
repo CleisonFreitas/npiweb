@@ -10,7 +10,7 @@
 <div class="row mt-2">
     <div class="col-12 col-sm-12 col-lg-12">
         <label for="cnpj">Cnpj:</label>
-        <input type="text" name="cnpj" value="{{ $cliente->cnpj ?? old('cnpj') }}" pattern="[0-9{14}]"  maxlength="14" class="form-control" placeholder="Somente números">
+        <input type="text" name="cnpj" value="{{ $cliente->cnpj ?? old('cnpj') }}" pattern="[0-9]{14}]"  maxlength="14" class="form-control" placeholder="Somente números">
         @error('cnpj')
             <small class="text-danger">*{{$message}}*</small>
         @enderror

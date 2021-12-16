@@ -10,6 +10,11 @@ use App\Http\Controllers\AulaClienteController;
 Auth::routes();
 
 Route::middleware(['theme:frontend','auth:web'])->group(function() {
+
+        // Cadastrar novo usuário
+        Route::get('/register/{cnpj}', [RegisteredUserController::class, 'create'])
+                ->middleware('auth')
+                ->name('register.user');
    
         Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
@@ -28,7 +33,7 @@ Route::middleware(['theme:frontend','auth:web'])->group(function() {
         
         Route::get('funerario/assistencial/conteudo/{id}',      [AulaClienteController::class, 'assistencial_view'])->name('assistencial_view');
         Route::get('funerario/estoque/conteudo/{id}',           [AulaClienteController::class, 'estoque_view'])->name('estoque_view');
-        Route::get('cemiterio/conteudo/{form_id}',                   [AulaClienteController::class, 'cemiterio_view'])->name('cemiterio_view');
+        Route::get('cemiterio/conteudo/{form_id}',              [AulaClienteController::class, 'cemiterio_view'])->name('cemiterio_view');
         Route::get('clinica/conteudo/{id}',                     [AulaClienteController::class, 'clinica_view'])->name('clinica_view');
         Route::get('contabil/conteudo/{id}',                    [AulaClienteController::class, 'contabil_view'])->name('contabil_view');
         Route::get('emissor/conteudo/{id}',                     [AulaClienteController::class, 'emissor_view'])->name('emissor_view');
