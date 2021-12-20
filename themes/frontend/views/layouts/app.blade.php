@@ -20,14 +20,14 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}">
 </head>
 <body class="bg-white">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="background-color:rgb(219,226,226);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'NpiWeb') }}
+                    {{ config('app.name', 'NPiWeb') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,12 +45,12 @@
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"><button type="button" class="btn btn-sm btn-danger"><i class="bi bi-box-arrow-in-right"></i></button>&nbsp;{{ __('Login') }}</a>
-                            </li>
+                            </li><!--
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn btn-sm btn-danger"><i class="bi bi-door-open"></i></button>&nbsp;{{ __('Registrar') }}</a>
+                                    <a class="nav-link" href="#"><button type="button" class="btn btn-sm btn-danger"><i class="bi bi-door-open"></i></button>&nbsp;{{ __('Registrar') }}</a>
                                 </li>
-                            @endif
+                            @endif-->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

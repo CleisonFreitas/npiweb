@@ -1,4 +1,4 @@
-@extends('/layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <body>
@@ -6,12 +6,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5 pt-2">
-                    <img src="img/registro.jpg" class="img-fluid" alt="registrar">
+                    <img src="{{asset('img/registro.jpg')}}" class="img-fluid" alt="registrar">
                 </div>
                 <div class="col-lg-7 px-5 pt-3">
                     <h2 class="font-wight-bold py-3" style="font-family:DejaVu Sans Mono, monospace;">NPI Web Academy</h2>
                     <h5 style="font-family:DejaVu Sans Mono, monospace;">Registre-se para acessar o conteúdo!</h5>                     
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register.post') }}">
                         @csrf
                             <div class="form-row">
                                 <div class="col-md-10">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <input type="hidden" name="cnpj" value="">
+                                <input type="hidden" name="cnpj" value="{{$registro}}">
                             </div>
                             <div class="form-row">
                                 <div class="col-md-8">

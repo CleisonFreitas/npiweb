@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="{{asset('css/sb-admin-2.min.css')}}">
     <title>Alteração de Senha</title>
     <style>
         *{
@@ -65,7 +65,6 @@
                         <div class="mb-3">
                             <a href="{{ route('login') }}" class="">Voltar para página de login!</a><br>
                         </div>
-                        Ainda não possui uma conta?  <a href="{{ route('register') }}" class="link-primary"> Cadastre-se Aqui</a>!<br>
                     </div>
                 </div>
             </div>
