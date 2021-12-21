@@ -29,7 +29,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
-    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
 </head>
 
 <body id="page-top">
@@ -47,7 +47,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-1">Admin&nbsp;</div>
                 <div class="sidebar-brand-text mt-5">
-                    <small><sub>v1.12</sub></small>
+                    <small><sub>v1.14</sub></small>
                 </div>
             </a>
             

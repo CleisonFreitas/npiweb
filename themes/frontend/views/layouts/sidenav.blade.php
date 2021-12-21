@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Versão: 10.0.0.7</div>
+            <div class="small">Versão: 1.14</div>
            <small> <i class="bi bi-calendar"></i>&nbsp;{{date('d/m/Y')}}</small>
         </div>
     </nav>
