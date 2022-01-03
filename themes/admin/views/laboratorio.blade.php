@@ -169,7 +169,7 @@
                                
                                 <div class="form-group row">
                                     <label for="categoria" class="col-12 col-sm-12 col-lg-2 col-form-label">Categoria/Nível</label>
-                                    <div class="col-6 col-sm-6 col-lg-4">
+                                    <div class="col-6 col-sm-6 col-lg-6">
                                         <select name="categoria" id="" class="custom-select">
                                             <option value="assistencial">Funerário - Assistencial</option>
                                             <option value="estoque">Funerário - Estoque</option>
@@ -182,23 +182,18 @@
                                             <option value="telemarketing">Telemarketing</option>
                                             <option value="outro">Outro</option>
                                         </select>
+                                        <input type="hidden" name="nivel" value="N">
                                     </div>
-                                    <div class="col-6 col-sm-6 col-lg-4">
-                                        <select name="nivel" id="nivel" class="custom-select">
-                                            <option value="N">Normal</option>
-                                            <option value="E">Específico</option>
-                                            <option value="Q">Equipe</option>
-                                        </select>
+                                    <div class="col-12 col-sm-12 col-lg-2">
+                                        <input type="text" name="ordem" id="ordem" class="form-control" placeholder="Ordem">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="nome" class="col-12 col-sm-12 col-lg-2 col-form-label">Descrição/Ordem:</label>
-                                    <div class="col-12 col-sm-12 col-lg-6">
+                                    <div class="col-12 col-sm-12 col-lg-8">
                                         <input type="text" name="descricao" id="curso" class="form-control" placeholder="Digite o nome da formação">
                                     </div>
-                                    <div class="col-12 col-sm-12 col-lg-2">
-                                        <input type="text" name="ordem" id="curso" class="form-control" placeholder="Ordem">
-                                    </div>
+                                    
                                 </div>
                                 <div class="form-group row">
                                     <label for="observao" class="col-12 col-sm-12 col-lg-2 col-form-label">Observação: </label>

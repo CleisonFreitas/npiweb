@@ -28,12 +28,25 @@ class ContatoRequest extends FormRequest
         return [
                 'sistema'=>['bail','required',
                 Rule::in(['Funerário','Cemitério','Clínica','Contábil','Emissor','Mobile','Veicular','Telemarketing']) ],
-                'title'=>'bail|required|min:8|max:50',
+                'title'=>'bail|required|min:8|max:150',
                 'nome'=>'bail|required|max:80',
                 'email'=>'bail|required|min:10|max:100,email:rfc,dns',
-                'descricao'=>'bail|required|min:3|max:1000'
+                'descricao'=>'bail|required|min:8|max:255'
           
             //
+        ];
+    }
+
+    public function messages(){
+
+        return [
+            'sistema.required' => 'É obrigatório informar um sistema',
+            'title.required' => 'É obrigatório informar o título',
+            'title.max' => 'A quantidade de caracteres não pode ser superior à 150',
+            'title.min' => 'A quantidade de caracteres não pode ser inferior à 8',
+            'descricao.max' => 'A quantidade de caracteres não pode ser superior à 255',
+            'descricao.min' => 'A quantidade de caracteres não pode ser inferior à 8'
+
         ];
     }
 }

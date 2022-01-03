@@ -16,7 +16,7 @@ class FormController extends Controller
     }
 
     public function form_edit($id){
-        $formacoes = FormModel::find($id);
+        $formacoes = FormModel::findOrfail($id);
         return redirect()->route('admin.laboratorio',compact('formacoes'));
     }
     

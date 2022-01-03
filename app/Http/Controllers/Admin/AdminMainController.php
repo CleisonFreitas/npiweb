@@ -13,6 +13,7 @@ use App\Models\MobileModel;
 use App\Models\SistemasModel;
 use App\Models\ContatoModel;
 use App\Models\User;
+use App\Models\FormModel;
 use App\Models\Admin;
 use App\Http\Requests\ContatoRequest;
 
@@ -42,7 +43,7 @@ class AdminMainController extends Controller
     
     public function main(){
             $requests = ContatoModel::all()->count();
-            $sistemas = SistemasModel::all()->count();
+            $sistemas = FormModel::all()->where('status','P')->count();
             $users = User::all(); 
             $admins = Admin::all()->where('email','!=','admin@npitecnologia.com.br')->count();
         //  $requests = ContatoModel::all();

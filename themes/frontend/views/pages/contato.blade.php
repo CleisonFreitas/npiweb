@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-11 col-md-6">    
                 <label for="title">Assunto: </label>
-                    <input type="text" class="form-control" value="" name="title" id="title" placeholder="Ex: Vídeos do Emissor não estão funcionando" aria-describedby="button-addon1" required>
+                    <input type="text" class="form-control" value="{{ old('title') }}" name="title" id="title" placeholder="Ex: Vídeos do Emissor não estão funcionando" aria-describedby="button-addon1" required>
                     @error('title')
                         <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
                     @enderror
@@ -63,17 +63,17 @@
         <div class="row mt-1">
             <div class="col-11 col-md-3">
                 <label for="Nome">Telefone/Celular(Opcional): </label>
-                    <input type="text" class="form-control" value="" name="telefone" id="txtFone" onkeyup="mask_fone();" required>
+                <input type="text" class="form-control" value="{{ old('telefone') }}" name="telefone" pattern="[0-9]{14-15}" id="txtFone" maxlength="15" onkeyup="mask_fone();" required>
             </div>
             <div class="col-11 col-md-3"> 
             <label for="email" >WhatsApp(Opcional): </label>
-                <input type="text" class="form-control" value="" name="whatsapp" id="whatsapp">
+                <input type="text" class="form-control" value="{{ old('whatsapp') }}" name="whatsapp" id="txtFone2" maxlength="15" onkeyup="mask_fone2();">
             </div>
         </div>
         <div class="row mt-1">
             <div class="col-11 col-md-11">
             <label for="descricao" >Descrição: </label>
-                <textarea rows="7" class="form-control" value="" name="descricao" id="descricao" data-ls-module="charCounter" maxlength="255" required></textarea>
+                <textarea rows="7" class="form-control" value="" name="descricao" id="descricao" data-ls-module="charCounter" maxlength="255" required>{{ old('descricao') }}</textarea>
             </div>
         </div>
         <div class="row">

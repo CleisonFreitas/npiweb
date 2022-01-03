@@ -7,7 +7,9 @@
 @section('content')
 
 <!-- Conteúdo -->
-    <h1 class="h3 mb-4 text-gray-600">Colaboradores</h1>
+<div class="card shadow mb-3">
+    <div class="card-body">
+        <h1 class="h3 mb-4 text-gray-600">Colaboradores</h1>
         <p class="text-lg-start">
             Diferente do cadastro de usuários do sistema para acesso ao conteúdo do NPI Academy, o cadastro dos colaboradores do módulo 
             "Admin" é restrito por acesso interno, ou seja, só pode ser realizado através da permissão de outro colaborador que já opera 
@@ -63,38 +65,11 @@
                 </div>
             </div><br>
             <!--
-        <div class="row">
-            <div class="col">               
-            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#exampleModal">
-                Assistir
-            </button>
-            !-- Modal --
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Conteúdo</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                        <div class="modal-body">
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gqB3HZVn-gg" 
-                                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-                                    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                </iframe>
-                              </div>
-                        </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                </div>
-            </div>
             !-- /#Modal -->
         </div>
     </div>
         <!-- /#Conteúdo -->
+
+    
 
 @endsection

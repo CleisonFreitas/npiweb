@@ -45,7 +45,7 @@
                                 <input type="hidden" name="operador" value="{{ Auth::guard('admin')->user()->name }}" id="">
                             @endforeach
                             
-                            <label for="indice" class="col-form-label">Tipo: &nbsp;</label>
+                            <label for="indice" class="col-form-label" style="margin-right:2px;">Tipo: &nbsp;</label>
                             <div class="col">
                                 <select name="tipo" id="tipo" class="custom-select">
                                     <option value="I">Índice</option>
@@ -54,22 +54,22 @@
                             </div>    
                         </div>
                         <div class="form-group row">
-                            <label for="titulo" class="col-form-label">Título: </label>
+                            <label for="titulo" class="col-form-label" style="margin-right:1px;">Título: </label>
                             <div class="col">
                                 <input type="text" name="descricao" id="" class="form-control" placeholder="Título">
                             </div>    
                         </div>
                         <div class="form-group row">
-                            <label for="id" class="col-form-label" >Marca:</label>
+                            <label for="id" class="col-form-label" style="margin-right:16px;">Tag:</label>
                             <div class="col">
-                                <input type="text" name="etiqueta" id="" class="form-control" placeholder="Etiqueta">
+                                <input type="text" name="etiqueta" id=""  class="form-control" placeholder="Tag" pattern="[0-9]{1-3}">
                             </div>
                             <div class="col">
                                 <input type="text" name="ordem" id="" class="form-control" placeholder="Ordem">
                             </div>      
                         </div>   
                         <div class="form-group row">
-                            <label for="ident" class="col-form-label" style="margin-right:14px;">Link:</i></label>
+                            <label for="ident" class="col-form-label" style="margin-right:13px;">Link:</i></label>
                             <div class="col">
                                 <input type="text" name="iframe" id="" class="form-control" placeholder="Cole o link do conteúdo aqui!">
                             </div> 

@@ -17,9 +17,14 @@ class LabController extends Controller
 {
 
     public function view_lab(){
-        $laboratorio = FormModel::all();
+        try{
+            $laboratorio = FormModel::paginate();
+        }catch(\Exception $e){
+
+            return response()->json($e->getMessage(),404);
+        }
         
-        return view('laboratorio')->with('laboratorio',$laboratorio);
+        return view('laboratorio',compact('laboratorio'));
     }
     public function edit_show($id){
         $formacoes = FormModel::all()->where('id',$id);
