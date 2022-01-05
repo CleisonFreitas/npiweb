@@ -28,33 +28,33 @@
     <div class="row">
             <div class="col-12 col-md-5">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" value="{{$r->nome}}" name="nome" id="nome" >
+                <input type="text" class="form-control bg-white" value="{{$r->nome}}" name="nome" id="nome" readonly>
             </div>
             <div class="col-12 col-md-5">
                 <label for="email">E-mail: </label>
-                <input type="text" class="form-control" value="{{$r->email}}" name="email" id="email" readonly>
+                <input type="text" class="form-control bg-white" value="{{$r->email}}" name="email" id="email" readonly>
             </div>
     </div>
     <div class="row">
             <div class="col-12 col-md-10">
                 <label for="sistema">Sistema: </label>
-                <input type="text" class="form-control" value="{{$r->sistema}}" name="sistema" id="sistema" >
+                <input type="text" class="form-control bg-white" value="{{$r->sistema}}" name="sistema" id="sistema" readonly>
             </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-10">
             <label for="sistema">Assunto: </label>
-            <input type="text" class="form-control" value="{{$r->title}}" name="title" id="title" >
+            <input type="text" class="form-control bg-white" value="{{$r->title}}" name="title" id="title" readonly>
         </div>
     </div>
     <div class="row">
         <div class="col-12 col-md-4">
             <label for="telefone">Telefone: </label>
-            <input type="text" class="form-control" value="{{$r->telefone}}" name="telefone" id="telefone" >
+            <input type="text" class="form-control bg-white" value="{{$r->telefone}}" name="telefone" id="telefone" readonly>
         </div>
         <div class="col-12 col-md-4">
             <label for="whatsapp">WhatsApp: </label>
-            <input type="text" class="form-control" value="{{$r->whatsapp}}" name="whatsapp" id="whatsapp" >
+            <input type="text" class="form-control bg-white" value="{{$r->whatsapp}}" name="whatsapp" id="whatsapp" readonly>
         </div>
     </div>
     <div class="row">
@@ -66,7 +66,7 @@
     <div class="row">
         <div class="col">
             <a href={{route('admin.contato')}} class="btn btn-secondary">Voltar</a>&nbsp;
-            <button type="submit" class="btn btn-success">Gravar</button>
+            <button type="submit" class="btn btn-primary ">Gravar</button>
         </div>
     </div>
 </form>

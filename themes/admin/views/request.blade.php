@@ -94,8 +94,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Login</th>
-                                <th>Autor</th>
+                                <th>Responsável</th>
                                 <th>Email</th>
                                 <th>Título</th>
                                 <th>Status</th>
@@ -105,16 +104,13 @@
                         <tbody>
                             @foreach ($requests as $r)
                                 <tr>
-                                    <td>{{$r->login}}</td>
-                                    <td>{{$r->nome}}</td>
+                                    <td>{{$r->login ?? 'Nenhum'}}</td>
                                     <td>{{$r->email}}</td>
                                     <td>{{$r->title}}</td>
                                     <td>{{$r->status}}</td>
                                     <td>
-                                        <div class="row">
-                                            <a href="{{ route('admin.contato.edit',$r->id) }}"class="btn btn-md"><i class="fas fa-edit text-gray-800"></i></a>
-                                            <a href="#" class="btn btn-md" data-toggle="modal" data-target="#del{{$r->id}}"><i class="fas fa-trash text-gray-800"></i></a>
-                                        </div>
+                                        <a href="{{ route('admin.contato.edit',$r->id) }}"class="btn btn-secondary btn-sm" title="Editar"><i class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#del{{$r->id}}" title="Excluir"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 <!-- Modal Del-->
