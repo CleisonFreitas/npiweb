@@ -35,9 +35,7 @@
                 </div>
                 <!-- #Switch do Módulo -->
 
-                <div class="col-12 col-xl-3 mb-3">
-                    <input type="text" class="form-control" value="{{$f->banco}}" placeholder="Cliente" name="banco" id="banco" required>
-                </div>
+            
                 <div class="col-12 col-xl-3 mb-3">
                     <input type="date" class="form-control" value="{{ date('Y-m-d', strtotime($f->created_at)) }}" name="dt-cadastro" id="dt-cadastro">
                 </div>
@@ -94,9 +92,6 @@
                 @error('modulo')
                     <small id="emailHelp" class="form-text text-danger">{{$message}}</small>
                 @enderror
-            </div>
-            <div class="col-12 col-xl-3 mb-3">
-                <input type="text" class="form-control" value="{{ old('banco') }}" placeholder="Cliente" name="banco" id="banco" required>
             </div>
             <div class="col-12 col-xl-3 mb-3">
                 <input type="date" class="form-control" value="{{ date('Y-m-d') }}" name="dt-cadastro" id="dt-cadastro">

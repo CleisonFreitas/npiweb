@@ -50,6 +50,11 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="********">
                                 </div>
                             </div>
+                            <div class="form-row mt-3">
+                                <div class="col-12 col-md-12 col-lg-12">
+                                    <p>Já possui uma conta? <a href="{{route('login')}}">Acesse aqui</a></p>
+                                </div>
+                            </div>
                             <div class="col">
                                 <input type="hidden" name="cnpj" value="{{$registro}}">
                             </div>

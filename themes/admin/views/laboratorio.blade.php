@@ -196,9 +196,9 @@
                                     
                                 </div>
                                 <div class="form-group row">
-                                    <label for="observao" class="col-12 col-sm-12 col-lg-2 col-form-label">Observação: </label>
+                                    <label for="sobre" class="col-12 col-sm-12 col-lg-2 col-form-label">Sobre: </label>
                                     <div class="col-12 col-sm-12 col-lg-8">
-                                        <textarea name="observacao" id="" cols="5" rows="5" class="form-control"></textarea>
+                                        <textarea name="sobre" id="" cols="5" rows="5" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
