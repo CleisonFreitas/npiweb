@@ -47,7 +47,7 @@
                             
                             <label for="indice" class="col-form-label" style="margin-right:2px;">Tipo: &nbsp;</label>
                             <div class="col">
-                                <select name="tipo" id="tipo" class="custom-select">
+                                <select name="tipo" id="tipoContent" class="custom-select">
                                     <option value="I">Índice</option>
                                     <option value="C">Conteúdo</option>
                                 </select>    
@@ -68,7 +68,7 @@
                                 <input type="text" name="ordem" id="" class="form-control" placeholder="Ordem">
                             </div>      
                         </div>   
-                        <div class="form-group row">
+                        <div class="form-group row" id="hidelink">
                             <label for="ident" class="col-form-label" style="margin-right:13px;">Link:</i></label>
                             <div class="col">
                                 <input type="text" name="iframe" id="" class="form-control" placeholder="Cole o link do conteúdo aqui!">
@@ -163,7 +163,23 @@
             </div>
             <!-- #Conteúdo -->
     </div>
-</div>   
+</div>
+
+@section('js')
+<script>
+$( document ).ready(function() {
+    $("#hidelink").hide();
+
+    $("#tipoContent").on("change", function() {
+        if($(this).val() == "C"){
+            $("#hidelink").show();
+        }else{
+            $("#hidelink").hide();
+        }
+    });
+  });
+</script>
+@endsection
     
             
 @endsection
