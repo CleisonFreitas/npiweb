@@ -466,7 +466,6 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
 
@@ -483,8 +482,21 @@
 
     <!-- Máscara JS -->
     <script src="{{ asset('js/mascara.js') }}"></script>
+    @section('js')
+    <script>
+        $( document ).ready(function() {
+            $("#hidelink").hide();
 
-    @yield('js')
+            $("#tipoContent").on("change", function() {
+                if($(this).val() == "C"){
+                    $("#hidelink").show();
+                }else{
+                    $("#hidelink").hide();
+                }
+            });
+        });
+    </script>
+    @endsection
  
     @if (session('sucesso'))
     <script>
@@ -507,6 +519,7 @@
   @endif
   
   @include('sweetalert::alert')
+  @yield('js')
 </body>
 
 </html>
